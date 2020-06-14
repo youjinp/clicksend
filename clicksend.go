@@ -17,6 +17,11 @@ type HttpClientAPI interface {
 	Do(req *http.Request) (*http.Response, error)
 }
 
+type ClientAPI interface {
+	doRequest(opts parameters, dst interface{}) error
+	SendSMS(s *SMS) (SMSResponse, error)
+}
+
 // Client provides a connection to the Clicksend API
 type Client struct {
 	// HTTPClient
