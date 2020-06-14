@@ -72,8 +72,8 @@ const (
 	ClickSendResponseCodeSomethingIsWrong                                  = "SOMETHING_IS_WRONG"
 )
 
-func (c *Client) SendSMS(s *SMS) (SMSResponse, error) {
-	res := SMSResponse{}
+func (c *Client) SendSMS(s *SMS) (*SMSResponse, error) {
+	res := &SMSResponse{}
 
 	if s == nil {
 		return res, errors.New("The sms object is not set")
