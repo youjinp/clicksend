@@ -81,7 +81,7 @@ func (c *Client) SendSMS(s *SMS) (*SMSResponse, error) {
 
 	err := c.doRequest(parameters{
 		Method:  "POST",
-		Path:    "email/batch",
+		Path:    "sms/send",
 		Payload: s,
 	}, &res)
 
