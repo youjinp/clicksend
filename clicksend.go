@@ -18,7 +18,6 @@ type HttpClientAPI interface {
 }
 
 type ClientAPI interface {
-	doRequest(opts parameters, dst interface{}) error
 	SendSMS(s *SMS) (*SMSResponse, error)
 }
 
