@@ -72,7 +72,7 @@ func (client *Client) doRequest(opts parameters, dst interface{}) error {
 
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", base64.StdEncoding.EncodeToString([]byte(client.Username+":"+client.APIKey)))
+	req.Header.Add("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte(client.Username+":"+client.APIKey)))
 
 	res, err := client.HTTPClient.Do(req)
 	if err != nil {

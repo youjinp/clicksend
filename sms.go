@@ -80,9 +80,13 @@ func (c *Client) SendSMS(s *SMS) (*SMSResponse, error) {
 	}
 
 	err := c.doRequest(parameters{
-		Method:  "POST",
-		Path:    "sms/send",
-		Payload: s,
+		Method: "POST",
+		Path:   "sms/send",
+		Payload: map[string]interface{}{
+			"messages": []SMS{
+				*s,
+			},
+		},
 	}, &res)
 
 	return res, err
